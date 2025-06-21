@@ -1,145 +1,71 @@
 
+# Hospital Management System - Backend
 
-# MediConnect-Dashboard- - Full Stack Project
-
-This project is a comprehensive **Hospital Management System** featuring a responsive design for both administrators and patients. It includes a backend service and two separate frontend implementations for managing hospital operations and patient interactions.
+This is the **Backend API** for the **Life Care Hospital** Management System. The backend handles patient and doctor registrations, authentication, appointment management, and communication between patients and the admin. It is built using **Node.js** and **Express.js**, with MongoDB as the database. This project also includes features like validation, error handling, token generation, and password encryption.
 
 ## Features
 
-### [Admin Panel:](https://lifecare-administration.netlify.app)
-- **Doctor Management**: Register and manage doctor profiles.
-- **Admin Management**: Add new administrators.
-- **Appointment Management**: View, approve, or reject patient appointments.
-- **Patient Messages**: Read and respond to patient messages.
+- **User Authentication**: Secure login and registration for patients, doctors, and admins using JWT (JSON Web Tokens).
+- **Password Encryption**: Uses bcrypt to securely hash and store passwords in the database.
+- **Appointment Management**: Manage doctor-patient appointments via the backend API.
+- **Cloudinary Integration**: Store doctor profile images in Cloudinary.
+- **Error Handling**: Centralized error handling mechanism for better API management.
+- **Validation**: Input validation using Mongoose and validator.js.
+- **Role-Based Access**: Access control for different user roles (Admin, Patient, Doctor).
 
-### [Patient Portal:](https://lifecare-hospitals.netlify.app)
-- **Registration and Login**: Patients can register and log in.
-- **Appointment Booking**: Schedule appointments with doctors, including patient details and date.
-- **Message Sending**: Send messages to the admin.
-- **Hospital Information**: Learn about Life Care Hospital.
 
-## Project Structure
-
-The project is organized into the following main folders:
-
-- **Backend**: Contains the server-side code for handling API requests, authentication, and database interactions.
-- **Frontend-Admin**: The responsive frontend for hospital administrators.
-- **Frontend-Patient**: The responsive frontend for patients.
-
-### Backend
-The backend is built using Node.js and Express, and it includes:
-- **Dependencies**: `bcrypt`, `cloudinary`, `cookie-parser`, `cors`, `dotenv`, `express`, `express-fileupload`, `jsonwebtoken`, `mongoose`, `validator`.
-- **Features**: Error handling, input validation, token generation, and user schemas.
-
-### Frontend - Admin
-The admin panel is built with React.js and provides a responsive interface for managing hospital operations.
-
-### Frontend - Patient
-The patient portal is also built with React.js, offering a responsive design for patient interactions.
-
-## Technologies Used
-
-- **Frontend**: React.js, Bootstrap, Axios
-- **Backend**: Node.js, Express, MongoDB, JWT, Bcrypt
-- **Other**: Cloudinary for image uploads, dotenv for environment variables, cookie-parser for handling cookies.
-
-## Getting Started
-
-To get started with the project, follow these instructions:
+## Installation
 
 ### Prerequisites
 
-- Node.js and npm (Node Package Manager) installed on your system.
-- A running backend server (see the backend section for setup instructions).
+- Node.js and npm (Node Package Manager)
+- MongoDB installed and running
+- Cloudinary account for image storage
+- `.env` file with the following environment variables:
 
-### Installation
+```
+MONGO_URI=<Your MongoDB URI>
+JWT_SECRET_KEY=<Your JWT Secret Key>
+JWT_EXPIRES=7d
+CLOUDINARY_CLOUD_NAME=<Your Cloudinary Cloud Name>
+CLOUDINARY_API_KEY=<Your Cloudinary API Key>
+CLOUDINARY_API_SECRET=<Your Cloudinary API Secret>
+```
 
-1. **Clone the repository:**
+### Steps
+
+1. Clone the repository:
 
    ```bash
-    git clone https://github.com/Fairooz2150/Hospital-Management-System.git
-   ```
-    - First open Hospital-Management-System folder:
-     ```bash
-     cd Hospital-Management-System
-     ```
+   git clone https://github.com/Fairooz2150/Hospital-Management-System.git
+    ```
 
-2. **Navigate to each folder and install dependencies:**
-
-   - For Backend:
-     ```bash
-     cd Backend
-     npm install
-     ```
-
-   - For Frontend-Admin:
-     ```bash
-     cd Frontend-Admin
-     npm install
-     ```
-
-   - For Frontend-Patient:
-     ```bash
-     cd Frontend-Patient
-     npm install
-     ```
-
-### Running the Application
-
-
-1. **Start the Backend server:**
+2. Navigate to the **Backend** folder:
 
    ```bash
    cd Backend
-   npm run dev
    ```
 
-2. **Start the Frontend-Admin application:**
+3. Install the required dependencies:
 
    ```bash
-   cd Frontend-Admin
-   npm run dev
+   npm install
    ```
 
-3. **Start the Frontend-Patient application:**
+4. Start the server:
 
    ```bash
-   cd Frontend-Patient
    npm run dev
    ```
 
-4. **Open your browser and navigate to:**
-   - Admin Panel: [http://localhost:5174](http://localhost:5174)
-   - Patient Portal: [http://localhost:5175](http://localhost:5175)
+5. The backend will be running at **http://localhost:4000**.
 
-### Environment Variables
+## Usage
 
-Ensure you have the following environment variables set in your `.env` file for the backend:
+- Use Postman or any other API client to test the backend routes.
+- Ensure you have the frontend running and that the environment variables are properly configured to enable API communication.
 
-- `PORT`: The port number for the backend server.
-- `MONGO_URI`: The MongoDB connection string.
-- `JWT_SECRET_KEY`: Secret key for JWT.
-- `JWT_EXPIRES`: JWT expiration time.
-- `CLOUDINARY_CLOUD_NAME`: Cloudinary cloud name for image storage.
-- `CLOUDINARY_API_KEY`: Cloudinary API key.
-- `CLOUDINARY_API_SECRET`: Cloudinary API secret.
+## Contributing
 
-### Creating an Admin User
-
-1. **Register a new patient user** by following the registration process on the Patient Portal.
-2. **Update the user's role** to "Admin" directly in the database:
-   - Open your MongoDB client (e.g., MongoDB Compass or your terminal).
-   - Find the `users` collection in your database.
-   - Locate the user document with the role of "Patient" that you registered.
-   - Update the `role` field from "Patient" to "Admin".
-
-### Contributing
-
-If you'd like to contribute to the project:
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature/YourFeature`).
-3. Commit your changes (`git commit -am 'Add some feature'`).
-4. Push to the branch (`git push origin feature/YourFeature`).
-5. Create a new Pull Request.
-
+If you'd like to contribute to the backend of the Hospital Management System, feel free to fork the repository and create a pull request with your changes.
 

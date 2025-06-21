@@ -1,0 +1,30 @@
+import { createContext, StrictMode, useState } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+
+// 🔄 Create a global context for authentication and user
+export const AuthContext = createContext();
+
+const AppProvider = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [activeUser, setActiveUser] = useState(null);
+
+  return (
+    <AuthContext.Provider
+      value={{
+        isLoggedIn,
+        setIsLoggedIn,
+        activeUser,
+        setActiveUser,
+      }}
+    >
+      <App />
+    </AuthContext.Provider>
+  );
+};
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <AppProvider />
+  </StrictMode>
+);
